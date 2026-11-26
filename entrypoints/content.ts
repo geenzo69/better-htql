@@ -1,5 +1,7 @@
 import '@/assets/login.css';
 import { arrangeLoginLayout } from '@/util/loginLayout';
+import { configureLoginViewport } from '@/util/loginViewport';
+import { initializeToasts } from '@/util/toast';
 
 export default defineContentScript({
 	matches: ['https://htql.ctu.edu.vn/', 'https://htql.ctu.edu.vn/login.php*'],
@@ -7,6 +9,7 @@ export default defineContentScript({
 	cssInjectionMode: 'manifest',
 	main() {
 		document.documentElement.classList.add('custom-htql-login');
+		configureLoginViewport();
 
 		const initialize = () => {
 			try {
@@ -31,6 +34,7 @@ function customizeLogin() {
 		return;
 	}
 
+	void initializeToasts();
 	form.action = 'https://dkmh.ctu.edu.vn/htql/sinhvien/dang_nhap.php';
 	form.method = 'post';
 

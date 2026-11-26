@@ -1,4 +1,5 @@
 import { createLoginIcon } from './loginIcon';
+import { bindLoginSubmission } from './loginSubmission';
 
 export function modernizeLoginForm(form: HTMLFormElement) {
 	const username = form.querySelector<HTMLInputElement>('[name="txtDinhDanh"]');
@@ -52,20 +53,5 @@ export function modernizeLoginForm(form: HTMLFormElement) {
 	submitField.append(submit, createLoginIcon('arrow'));
 	form.setAttribute('aria-labelledby', heading.id);
 	form.replaceChildren(heading, usernameLabel, passwordLabel, submitField);
-	form.addEventListener('submit', (event) => {
-		if (submit.disabled) {
-			event.preventDefault();
-
-			return;
-		}
-
-		submit.disabled = true;
-		submit.value = 'Đang đăng nhập…';
-		form.setAttribute('aria-busy', 'true');
-	});
-	window.addEventListener('pageshow', () => {
-		submit.disabled = false;
-		submit.value = 'Đăng nhập';
-		form.removeAttribute('aria-busy');
-	});
+	bindLoginSubmission(form, username, password, submit);
 }
