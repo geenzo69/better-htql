@@ -1,0 +1,234 @@
+html:not(.htql-login-ready) #page-body {
+	visibility: hidden;
+}
+
+#btn-homepage {
+	display: none !important;
+}
+
+.custom-htql-login #page-body {
+	box-sizing: border-box;
+	width: min(1200px, 100%);
+	margin: 0 auto;
+	padding: 24px 16px;
+}
+
+.custom-htql-login .htql-login-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	padding-block: 48px 32px;
+}
+
+.custom-htql-login .htql-login-panel {
+	width: 100%;
+	max-width: 440px;
+	min-width: 0;
+	justify-self: center;
+}
+
+.custom-htql-login .htql-login-panel form {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+	margin: 0;
+	padding: clamp(24px, 5vw, 40px);
+	border: 1px solid #dce3eb;
+	border-radius: 20px;
+	background: #fff;
+	color: #1f2937;
+	text-align: left;
+}
+
+.custom-htql-login .htql-login-panel h1 {
+	margin: 0;
+	padding: 0 0 24px;
+	border-bottom: 1px solid #e8edf3;
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.custom-htql-login .htql-login-panel label {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.custom-htql-login .htql-login-panel .username,
+.custom-htql-login .htql-login-panel .password {
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	height: 50px;
+	margin: 0;
+	padding: 12px 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: #1f2937;
+	font: inherit;
+}
+
+.custom-htql-login .htql-login-field {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-inline: 14px;
+	border: 1px solid #cbd5e1;
+	border-radius: 10px;
+	background: #f8fafc;
+	color: #64748b;
+}
+
+.custom-htql-login .htql-login-field:focus-within {
+	border-color: #0873c8;
+	background: #fff;
+	color: #0873c8;
+	outline: 3px solid #e5f1fb;
+}
+
+.custom-htql-login .htql-login-panel svg {
+	flex: 0 0 20px;
+	width: 20px;
+	height: 20px;
+}
+
+.custom-htql-login .htql-password-toggle {
+	display: grid;
+	flex: 0 0 36px;
+	place-items: center;
+	height: 36px;
+	padding: 0;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: #64748b;
+	cursor: pointer;
+}
+
+.custom-htql-login .htql-password-toggle:hover {
+	background: #e8edf3;
+	color: #1f2937;
+}
+
+.custom-htql-login .htql-login-submit {
+	position: relative;
+}
+
+.custom-htql-login .htql-login-submit > svg {
+	position: absolute;
+	top: 50%;
+	right: 18px;
+	transform: translateY(-50%);
+	color: #fff;
+	pointer-events: none;
+}
+
+.custom-htql-login .htql-login-panel .btn-login {
+	width: 100%;
+	height: 50px;
+	padding: 12px 44px;
+	border: 0;
+	border-radius: 10px;
+	background: #0873c8;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.custom-htql-login .htql-login-panel .btn-login:hover {
+	background: #065fa6;
+}
+
+.custom-htql-login .htql-login-panel input:focus-visible {
+	outline: 2px solid #0873c8;
+	outline-offset: 3px;
+}
+
+.custom-htql-login .htql-login-field input:focus-visible {
+	outline: none;
+}
+
+.custom-htql-login .htql-password-toggle:focus-visible {
+	outline: 2px solid #0873c8;
+	outline-offset: 2px;
+}
+
+.custom-htql-login .htql-login-panel .btn-login:disabled {
+	background: #64748b;
+	cursor: wait;
+}
+
+.custom-htql-login .htql-login-panel form[aria-busy="true"] .htql-login-submit > svg {
+	visibility: hidden;
+}
+
+.custom-htql-login .htql-login-panel .btn-login:active {
+	transform: none;
+	background: #054e89;
+}
+
+.custom-htql-login .htql-announcements {
+	min-width: 0;
+	margin: 0;
+	overflow: hidden;
+	border-block: 1px solid #ccc;
+	background: #fff;
+}
+
+.custom-htql-login .htql-announcements .thongbao {
+	display: flex;
+	gap: 48px;
+	width: max-content;
+	margin: 0;
+	padding: 14px 0 14px 100%;
+	list-style: none;
+	text-align: left;
+	animation: htql-announcements-scroll var(--htql-ticker-duration, 120s) linear infinite;
+}
+
+.custom-htql-login .htql-announcements .thongbao li {
+	flex: 0 0 auto;
+	margin: 0;
+	padding: 0;
+	background: none;
+	white-space: nowrap;
+}
+
+.custom-htql-login .htql-announcements:hover .thongbao,
+.custom-htql-login .htql-announcements:focus-within .thongbao {
+	animation-play-state: paused;
+}
+
+.custom-htql-login .htql-announcements:focus-within {
+	overflow-x: auto;
+}
+
+.custom-htql-login .htql-announcements:focus-within .thongbao {
+	padding-left: 0;
+	transform: none;
+	animation: none;
+}
+
+@keyframes htql-announcements-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.custom-htql-login .htql-announcements {
+		overflow-x: auto;
+	}
+
+	.custom-htql-login .htql-announcements .thongbao {
+		padding-left: 0;
+		animation: none;
+	}
+}
